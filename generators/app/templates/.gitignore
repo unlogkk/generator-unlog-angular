@@ -1,0 +1,6 @@
+/node_modules
+/platforms
+/plugins
+/www/styles/app.css
+/www/bower_components
+/www/scripts/vendor

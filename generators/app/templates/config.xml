@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="<%= props.appName %>" version="0.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name><%= props.appName %></name>
+    <description>
+    <%= props.appName %>
+  </description>
+    <author email="dev@cordova.apache.org">
+      <%= props.appName %>
+    </author>
+    <allow-navigation href="*" />
+    <content src="index.html" />
+    <access origin="*" />
+    <access launch-external="true" origin="mailto://*" />
+    <access launch-external="true" origin="line://*" />
+
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Orientation" value="landscape" />
+
+    <plugin name="cordova-plugin-console" spec="~1.0.1" />
+    <plugin name="cordova-plugin-transport-security" spec="~0.1.0" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
+</widget>
+
