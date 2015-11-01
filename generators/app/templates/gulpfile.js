@@ -36,7 +36,7 @@ gulp.task('serve', ['build', 'browser-sync'], function() {
   );
 
   gulp.watch(
-    [__dirname + '/www/*.js', __dirname + '/www/scripts/**/*.js', '!' + __dirname + '/www/scripts/vendor/**/*.js', '!' + __dirname + '/www/bower_components/**/*.js', __dirname + '/www/views/**/*.html'],
+    [__dirname + '/www/*.{html,js}', __dirname + '/www/scripts/**/*.js', '!' + __dirname + '/www/scripts/vendor/**/*.js', '!' + __dirname + '/www/bower_components/**/*.js', __dirname + '/www/views/**/*.html'],
     {debounceDelay: 400}
   ).on('change', function(event) {
     var path = event.path;
