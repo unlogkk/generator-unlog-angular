@@ -46,7 +46,7 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdir('www/styles');
       this.mkdir('www/styles/less');
 
-      this.template('index.html', 'index.html');
+      this.template('index.html', 'www/index.html');
 
       this.copy('app.less', 'www/styles/less/app.less');
       this.copy('package.json', 'package.json');
