@@ -66,7 +66,7 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('.jshintrc', '.jshintrc');
       this.copy('circle.yml', 'circle.yml');
       this.copy('.bowerrc', '.bowerrc');
-      this.copy('.gitignore', '.gitignore');
+      this.copy('gitignore', '.gitignore');
       this.copy('karma.conf.js', 'karma.conf.js');
       this.copy('README.md', 'README.md');
       this.copy('.jsbeautifyrc', '.jsbeautifyrc');
