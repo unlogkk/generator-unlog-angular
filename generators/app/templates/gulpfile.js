@@ -35,9 +35,11 @@ gulp.task('serve', ['build', 'browser-sync'], function() {
     ['compile-less']
   );
 
-  gulp.watch(
-    [__dirname + '/www/*.{html,js}', __dirname + '/www/scripts/**/*.js', '!' + __dirname + '/www/scripts/vendor/**/*.js', '!' + __dirname + '/www/bower_components/**/*.js', __dirname + '/www/views/**/*.html'],
-    {debounceDelay: 400}
+  gulp.watch([
+    __dirname + '/www/*.{html,js}',
+    __dirname + '/www/scripts/**/*.js',
+    __dirname + '/www/views/**/*.html'
+    ], {debounceDelay: 400}
   ).on('change', function(event) {
     var path = event.path;
     var dir = pathToDir(path);
@@ -46,6 +48,13 @@ gulp.task('serve', ['build', 'browser-sync'], function() {
     gulp.src(path)
       .pipe(jsbeautifier({config: '.jsbeautifyrc', mode: 'VERIFY_AND_WRITE'}))
       .pipe(gulp.dest(dir));
+
+    var exclude = __dirname + '/www/index.html' === event.path;
+
+    if (!exclude) {
+      browserSync.reload();
+    }
+
   });
 
   gulp.watch(
@@ -71,17 +80,6 @@ gulp.task('browser-sync', function() {
     startPath: 'index.html'
   });
 
-  gulp.watch([
-    __dirname + '/www/**/*.js',
-    '!' + __dirname + '/www/scripts/vendor/**/*.js',
-    __dirname + '/www/**/*.html',
-    // __dirname + '/www/**/*.{js,html}',
-    // __dirname + '/www/**/*.{js,html,css,svg,png,gif,jpg,jpeg}'
-  ], {
-    debounceDelay: 400
-  }, function() {
-    browserSync.reload();
-  });
 });
 
 ////////////////////
